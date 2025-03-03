@@ -37,7 +37,7 @@ pwm_2b = pwmio.PWMOut(PWM_M2B, frequency=10000)
 motorR = motor.DCMotor(pwm_2a, pwm_2b)
 
 ldr = analogio.AnalogIn(board.GP27)
-
+######################################################################################
 
 def Robot_Movement(sL, sR):
     motorL.throttle = sL
@@ -68,7 +68,7 @@ def forward():
 def stop():
   Robot_Movement(0, 0)
 
-
+######################################################################################
 print("Press GP20 button to start...")
 
 
