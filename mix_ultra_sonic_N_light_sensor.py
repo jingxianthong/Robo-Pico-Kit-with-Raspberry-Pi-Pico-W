@@ -79,17 +79,14 @@ while True:
     try:
         if (raw > 35000):
             backward()   # Backward
-            print("Backward")
-
             backward_left() # Backward left
-            print("Backward left")
+
 
 
         Distance = Read_Ultrasonic()
         print(f"Distance: {Distance} cm")
         
         if Distance < 20:  # Obstacle detected
-            print("Turn Left")
             TurnLeft()  # Turn Left
             time.sleep(1)
         else:  # No obstacle
