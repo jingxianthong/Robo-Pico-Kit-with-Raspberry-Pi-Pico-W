@@ -23,11 +23,6 @@ PWM_M1B = board.GP9
 PWM_M2A = board.GP10
 PWM_M2B = board.GP11
 
-# Button Setup
-execute_button = digitalio.DigitalInOut(board.GP20)
-execute_button.direction = digitalio.Direction.INPUT
-execute_button.pull = digitalio.Pull.UP
-
 # DC motor setup
 pwm_1a = pwmio.PWMOut(PWM_M1A, frequency=10000)
 pwm_1b = pwmio.PWMOut(PWM_M1B, frequency=10000)
@@ -36,6 +31,7 @@ pwm_2a = pwmio.PWMOut(PWM_M2A, frequency=10000)
 pwm_2b = pwmio.PWMOut(PWM_M2B, frequency=10000)
 motorR = motor.DCMotor(pwm_2a, pwm_2b)
 
+# light sensor port
 ldr = analogio.AnalogIn(board.GP27)
 ######################################################################################
 
@@ -47,7 +43,6 @@ def Read_Ultrasonic():
     time.sleep(0.1)
     return sonar.distance
 
-
 def backward():
     Robot_Movement(-0.5,-0.5)
     time.sleep(1)
@@ -56,7 +51,6 @@ def backward_left():
     Robot_Movement(-0.3,-0.7)
     time.sleep(1)       
 
-
 def  TurnLeft():
   Robot_Movement(0.1, 0.5)
 
@@ -64,13 +58,10 @@ def  TurnLeft():
 def forward():
     Robot_Movement(0.5, 0.54)
 
-
 def stop():
   Robot_Movement(0, 0)
 
 ######################################################################################
-print("Press GP20 button to start...")
-
 
 while True:
     raw = ldr.value
@@ -80,9 +71,7 @@ while True:
         if (raw > 35000):
             backward()   # Backward
             backward_left() # Backward left
-
-
-
+            
         Distance = Read_Ultrasonic()
         print(f"Distance: {Distance} cm")
         
