@@ -29,16 +29,13 @@ motorL = motor.DCMotor(pwm_1a, pwm_1b)
 pwm_2a = pwmio.PWMOut(PWM_M2A, frequency=10000)
 pwm_2b = pwmio.PWMOut(PWM_M2B, frequency=10000)
 motorR = motor.DCMotor(pwm_2a, pwm_2b)
-
+# light sensor port
 ldr = analogio.AnalogIn(board.GP27)
-
+###########################################################################
 def Robot_Movement(sL, sR):
     motorL.throttle = sL
     motorR.throttle = sR
     
-print("Press GP20 button to start...")
-
-
 
 while True:
     raw = ldr.value
