@@ -85,29 +85,21 @@ def stop():
 while True:
     an = (SA.value * 3.3) / 65536
     print(an)
-    
-    
     if 1.4 < an < 1.5:  # 1.4 - 1.7v
         forward()
-
     elif 1.8 < an < 2.2:  # 1.7 - 2.2v
         TurnRight()
-        
     elif 0.8 < an < 1.4:  # 0.8 - 1.4v
         forward()
-        
     elif 2.2 < an < 2.85:  # 2.2 - 2.85v
         HardRight()
-
     elif 0.4 < an < 0.8:  # 0.6 - 0.8v
         hardleft()
     elif 2.85 < an < 3.0:  # 2.85 - 3.0v
         HardRight()
-
     elif 0.3 < an < 0.4:  # 0.3 - 0.4v
         superhardleft()
-
+    # Continue without movement
     elif an < 0.3 or an > 3:  # <0.3v or >3V
-  # Continue without movement
       continue
   
