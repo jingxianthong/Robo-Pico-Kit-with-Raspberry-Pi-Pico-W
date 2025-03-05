@@ -15,7 +15,6 @@ import board
 import analogio
 import digitalio
 import pwmio
-
 from adafruit_motor import motor
 
 
@@ -27,7 +26,6 @@ PWM_M2A = board.GP10
 PWM_M2B = board.GP11
 
 
-
 # DC motor setup
 # DC Motors generate electrical noise when running that can reset the microcontroller in extreme
 # cases. A capacitor can be used to help prevent this.
@@ -37,16 +35,14 @@ motorL = motor.DCMotor(pwm_1a, pwm_1b)
 pwm_2a = pwmio.PWMOut(PWM_M2A, frequency=10000)
 pwm_2b = pwmio.PWMOut(PWM_M2B, frequency=10000)
 motorR = motor.DCMotor(pwm_2a, pwm_2b)
-
-ldr = analogio.AnalogIn(board.GP27)
-
+# line sensor device
 SA = analogio.AnalogIn(board.GP26)
-
 
 def Robot_Movement(sL, sR):
     motorL.throttle = sL
     motorR.throttle = sR
-
+#####################################################
+# forward
 def forward():
     Robot_Movement(1.0, 1.0)
 
@@ -54,12 +50,10 @@ def Backward():
   Robot_Movement(-0.5, -0.52)
   time.sleep(3)
 
-
 #####################################################
 # Turn left
 def TurnLeft():
   Robot_Movement(0.6, 0.2)
-
 
 def hardleft():
   Robot_Movement(0.2, 0.63)\
@@ -71,16 +65,12 @@ def superhardleft():
 def TurnRight():
   Robot_Movement(0.5, 0.3)
 
-
 def HardRight():
   Robot_Movement(0.6, 0)
 
-############
 def stop():
   Robot_Movement(0, 0)
   time.sleep(3)
-
-
 ############################################################################################################################################################################
 while True:
     an = (SA.value * 3.3) / 65536
