@@ -17,15 +17,12 @@ import digitalio
 import pwmio
 from adafruit_motor import motor
 
-
 # Left Motor
 PWM_M1A = board.GP8
 PWM_M1B = board.GP9
 # Right Motor
 PWM_M2A = board.GP10
 PWM_M2B = board.GP11
-
-
 
 # DC motor setup
 # DC Motors generate electrical noise when running that can reset the microcontroller in extreme
@@ -36,10 +33,6 @@ motorL = motor.DCMotor(pwm_1a, pwm_1b)
 pwm_2a = pwmio.PWMOut(PWM_M2A, frequency=10000)
 pwm_2b = pwmio.PWMOut(PWM_M2B, frequency=10000)
 motorR = motor.DCMotor(pwm_2a, pwm_2b)
-
-ldr = analogio.AnalogIn(board.GP27)
-
-SA = analogio.AnalogIn(board.GP26)
 
 
 def Robot_Movement(sL, sR):
@@ -66,8 +59,7 @@ def stop():
   Robot_Movement(0, 0)
   time.sleep(3)
 print("Press GP20 button to start...")
-
-
+###########################################################################
 while True:  # Button pressed (logic is active low)
    forward()
    Backward()
