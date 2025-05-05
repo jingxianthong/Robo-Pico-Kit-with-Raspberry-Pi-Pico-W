@@ -52,5 +52,6 @@ The line-following sensor can differentiate between:
 4. Run the script to see the robot's behavior.
 
 ---
-
+**Result Video:** [YouTube Video](https://youtu.be/NvJSs73UOrY)  
+**Custom Function:** [YouTube Video](https://youtu.be/soNdTLq_Bb0)
 
